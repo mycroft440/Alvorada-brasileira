@@ -6,10 +6,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.HealthAndSafety
-import androidx.compose.material.icons.filled.LocalHospital
-import androidx.compose.material.icons.filled.Medication
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -81,7 +81,7 @@ fun SpendingDetailScreen(
                 if (category == "Saúde") {
                     item {
                         DetailItem(
-                            icon = Icons.Default.LocalHospital,
+                            icon = Icons.Default.Place,
                             title = "Construção: Hospital Municipal Alvorada",
                             subtitle = "Obra finalizada em Março/2026",
                             value = "R$ 200 Milhões",
@@ -90,7 +90,7 @@ fun SpendingDetailScreen(
                     }
                     item {
                         DetailItem(
-                            icon = Icons.Default.Medication,
+                            icon = Icons.Default.Add,
                             title = "Aquisição de Medicamentos",
                             subtitle = "Lote de insulina e remédios de uso contínuo",
                             value = "R$ 500 Milhões",
@@ -99,7 +99,7 @@ fun SpendingDetailScreen(
                     }
                     item {
                         DetailItem(
-                            icon = Icons.Default.HealthAndSafety,
+                            icon = Icons.Default.Favorite,
                             title = "Manutenção de UPAs",
                             subtitle = "Equipamentos e reformas estruturais",
                             value = "R$ 50 Milhões",

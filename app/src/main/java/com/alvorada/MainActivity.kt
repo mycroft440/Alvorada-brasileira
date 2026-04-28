@@ -18,11 +18,18 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.alvorada.ui.theme.AlvoradaTheme
-import com.alvorada.ui.screens.*
+import com.alvorada.ui.screens.WelcomeScreen
+import com.alvorada.ui.screens.LoginSuggestionScreen
+import com.alvorada.ui.screens.ProfileScreen
+import com.alvorada.ui.screens.SpendingDetailScreen
+import com.alvorada.ui.screens.LawsScreen
+import com.alvorada.ui.screens.WorksScreen
+import com.alvorada.ui.screens.SurveysScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,9 +66,9 @@ fun MainScreen() {
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
-                HorizontalDivider()
+                Divider()
                 NavigationDrawerItem(
-                    icon = { Icon(Icons.Default.HealthAndSafety, contentDescription = null) },
+                    icon = { Icon(Icons.Default.Favorite, contentDescription = null) },
                     label = { Text("Saúde") },
                     selected = false,
                     onClick = { 
@@ -79,7 +86,7 @@ fun MainScreen() {
                     }
                 )
                 NavigationDrawerItem(
-                    icon = { Icon(Icons.Default.Security, contentDescription = null) },
+                    icon = { Icon(Icons.Default.Lock, contentDescription = null) },
                     label = { Text("Segurança") },
                     selected = false,
                     onClick = { 
@@ -87,7 +94,7 @@ fun MainScreen() {
                     }
                 )
                 NavigationDrawerItem(
-                    icon = { Icon(Icons.Default.Construction, contentDescription = null) },
+                    icon = { Icon(Icons.Default.Place, contentDescription = null) },
                     label = { Text("Infraestrutura") },
                     selected = false,
                     onClick = { 
@@ -149,7 +156,7 @@ fun MainScreen() {
                 NavigationBarItem(
                     selected = currentRoute == "laws",
                     onClick = { navController.navigate("laws") },
-                    icon = { Icon(Icons.Default.Description, contentDescription = "Leis") },
+                    icon = { Icon(Icons.Default.List, contentDescription = "Leis") },
                     label = { Text("Leis") }
                 )
                 NavigationBarItem(
@@ -161,7 +168,7 @@ fun MainScreen() {
                 NavigationBarItem(
                     selected = currentRoute == "surveys",
                     onClick = { navController.navigate("surveys") },
-                    icon = { Icon(Icons.Default.Poll, contentDescription = "Pesquisas") },
+                    icon = { Icon(Icons.Default.Info, contentDescription = "Pesquisas") },
                     label = { Text("Pesquisas") }
                 )
             }
@@ -202,8 +209,13 @@ fun MainScreen() {
                     navController.navigate("spending_detail/$category")
                 }) 
             }
-            composable("works") { WorksScreen() }
-            composable("surveys") { SurveysScreen() }
+            composable("works") {
+                WorksScreen()
+            }
+            composable("surveys") {
+                SurveysScreen()
+            }
         }
     }
+}
 }

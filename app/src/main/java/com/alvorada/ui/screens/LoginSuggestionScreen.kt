@@ -58,14 +58,14 @@ fun LoginSuggestionScreen(
             ) {
                 item {
                     BenefitCard(
-                        icon = Icons.Default.VerifiedUser,
+                        icon = Icons.Default.Check,
                         title = "Identidade Verificada",
                         description = "Sua participação em consultas públicas terá valor oficial e seguro."
                     )
                 }
                 item {
                     BenefitCard(
-                        icon = Icons.Default.NotificationsActive,
+                        icon = Icons.Default.Info,
                         title = "Alertas Personalizados",
                         description = "Receba notificações sobre leis e obras que afetam diretamente sua região."
                     )

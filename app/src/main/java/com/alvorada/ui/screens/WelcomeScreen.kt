@@ -10,9 +10,9 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBalance
-import androidx.compose.material.icons.filled.VolumeMute
-import androidx.compose.material.icons.filled.VolumeUp
+import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -86,7 +86,7 @@ fun WelcomeScreen(onNavigateToSuggestion: () -> Unit) {
                 .border(1.dp, Color.White.copy(alpha = 0.3f), CircleShape)
         ) {
             Icon(
-                imageVector = if (isMuted) Icons.Default.VolumeMute else Icons.Default.VolumeUp,
+                imageVector = if (isMuted) Icons.Default.Close else Icons.Default.PlayArrow,
                 contentDescription = "Alternar Áudio",
                 tint = Color.White
             )
@@ -111,7 +111,7 @@ fun WelcomeScreen(onNavigateToSuggestion: () -> Unit) {
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    imageVector = Icons.Default.AccountBalance,
+                    imageVector = Icons.Default.AccountBox,
                     contentDescription = "Logo Governo",
                     modifier = Modifier.size(60.dp),
                     tint = Color(0xFF1351B4) // Azul Gov.br
