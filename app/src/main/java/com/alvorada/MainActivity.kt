@@ -71,7 +71,17 @@ fun MainScreen() {
             startDestination = "welcome",
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable("welcome") { WelcomeScreen() }
+            composable("welcome") { 
+                WelcomeScreen(onNavigateToSuggestion = { 
+                    navController.navigate("suggestion") 
+                }) 
+            }
+            composable("suggestion") {
+                LoginSuggestionScreen(
+                    onLoginClick = { /* Futura integração gov.br */ navController.navigate("laws") },
+                    onSkipClick = { navController.navigate("laws") }
+                )
+            }
             composable("laws") { LawsScreen() }
             composable("works") { WorksScreen() }
             composable("surveys") { SurveysScreen() }

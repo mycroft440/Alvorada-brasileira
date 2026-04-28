@@ -37,7 +37,7 @@ import androidx.compose.ui.unit.sp
  * Desenvolvida com foco em estética rica e padrões Material 3.
  */
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(onNavigateToSuggestion: () -> Unit) {
     var isMuted by remember { mutableStateOf(false) }
     var startAnimation by remember { mutableStateOf(false) }
     
@@ -152,7 +152,7 @@ fun WelcomeScreen() {
             // 5. Botões de Ação
             // Botão Principal: Entrar com gov.br
             Button(
-                onClick = { /* Ação Login gov.br */ },
+                onClick = onNavigateToSuggestion,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp),
@@ -180,7 +180,7 @@ fun WelcomeScreen() {
 
             // Botão Secundário: Continuar sem login
             OutlinedButton(
-                onClick = { /* Continuar sem login */ },
+                onClick = onNavigateToSuggestion,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp),
@@ -213,6 +213,6 @@ fun WelcomeScreen() {
 @Composable
 fun WelcomeScreenPreview() {
     MaterialTheme {
-        WelcomeScreen()
+        WelcomeScreen({})
     }
 }
