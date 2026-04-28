@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun LawsScreen() {
+fun LawsScreen(onCategoryClick: (String) -> Unit) {
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         Text("Painel Legislativo", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(16.dp))
@@ -36,7 +36,7 @@ fun LawsScreen() {
 
             // 3. Seção de Gastos por Categoria
             item {
-                SpendingSection()
+                SpendingSection(onCategoryClick)
                 Spacer(modifier = Modifier.height(32.dp))
             }
 
@@ -149,7 +149,7 @@ fun PublicDebtCard() {
 }
 
 @Composable
-fun SpendingSection() {
+fun SpendingSection(onCategoryClick: (String) -> Unit) {
     Column {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -182,21 +182,23 @@ fun SpendingSection() {
             category = "Saúde",
             value = "500 Bilhões",
             progress = 0.8f,
-            color = Color(0xFF2E7D32)
+            color = Color(0xFF2E7D32),
+            onClick = { onCategoryClick("Saúde") }
         )
         
         SpendingItem(
             category = "Educação",
             value = "350 Bilhões",
             progress = 0.6f,
-            color = Color(0xFF1565C0)
+            color = Color(0xFF1565C0),
+            onClick = { onCategoryClick("Educação") }
         )
     }
 }
 
 @Composable
-fun SpendingItem(category: String, value: String, progress: Float, color: Color) {
-    Column(modifier = Modifier.padding(vertical = 8.dp).clickable { /* Detalhes */ }) {
+fun SpendingItem(category: String, value: String, progress: Float, color: Color, onClick: () -> Unit) {
+    Column(modifier = Modifier.padding(vertical = 8.dp).clickable { onClick() }) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween

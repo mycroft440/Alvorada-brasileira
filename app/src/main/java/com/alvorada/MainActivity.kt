@@ -9,11 +9,9 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Description
-import androidx.compose.material.icons.filled.Build
-import androidx.compose.material.icons.filled.Poll
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -47,47 +45,103 @@ class MainActivity : ComponentActivity() {
 fun MainScreen() {
     val navController = rememberNavController()
     var userName by remember { mutableStateOf("Cidadão") }
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
     
-    Scaffold(
-        topBar = {
-            val navBackStackEntry by navController.currentBackStackEntryAsState()
-            val currentRoute = navBackStackEntry?.destination?.route
-            
-            // Mostrar TopBar apenas nas telas principais (leis, obras, pesquisas)
-            if (currentRoute in listOf("laws", "works", "surveys")) {
-                TopAppBar(
-                    title = { 
-                        Text(
-                            "Alvorada", 
-                            fontWeight = FontWeight.Bold, 
-                            color = Color(0xFF1351B4)
-                        ) 
-                    },
-                    actions = {
-                        // Círculo de Perfil no Topo
-                        Box(
-                            modifier = Modifier
-                                .padding(end = 16.dp)
-                                .size(40.dp)
-                                .clip(CircleShape)
-                                .background(MaterialTheme.colorScheme.primaryContainer)
-                                .clickable { navController.navigate("profile") },
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Person,
-                                contentDescription = "Perfil",
-                                tint = MaterialTheme.colorScheme.primary
-                            )
-                        }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.surface
-                    )
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        drawerContent = {
+            ModalDrawerSheet {
+                Spacer(Modifier.height(12.dp))
+                Text(
+                    "Categorias de Gastos",
+                    modifier = Modifier.padding(16.dp),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+                HorizontalDivider()
+                NavigationDrawerItem(
+                    icon = { Icon(Icons.Default.HealthAndSafety, contentDescription = null) },
+                    label = { Text("Saúde") },
+                    selected = false,
+                    onClick = { 
+                        navController.navigate("spending_detail/Saúde")
+                        scope.launch { drawerState.close() }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = { Icon(Icons.Default.Build, contentDescription = null) },
+                    label = { Text("Educação") },
+                    selected = false,
+                    onClick = { 
+                        navController.navigate("spending_detail/Educação")
+                        scope.launch { drawerState.close() }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = { Icon(Icons.Default.Security, contentDescription = null) },
+                    label = { Text("Segurança") },
+                    selected = false,
+                    onClick = { 
+                        scope.launch { drawerState.close() }
+                    }
+                )
+                NavigationDrawerItem(
+                    icon = { Icon(Icons.Default.Construction, contentDescription = null) },
+                    label = { Text("Infraestrutura") },
+                    selected = false,
+                    onClick = { 
+                        scope.launch { drawerState.close() }
+                    }
                 )
             }
-        },
-        bottomBar = {
+        }
+    ) {
+        Scaffold(
+            topBar = {
+                val navBackStackEntry by navController.currentBackStackEntryAsState()
+                val currentRoute = navBackStackEntry?.destination?.route
+                
+                // Mostrar TopBar apenas nas telas principais
+                if (currentRoute in listOf("laws", "works", "surveys")) {
+                    TopAppBar(
+                        title = { 
+                            Text(
+                                "Alvorada", 
+                                fontWeight = FontWeight.Bold, 
+                                color = Color(0xFF1351B4)
+                            ) 
+                        },
+                        navigationIcon = {
+                            IconButton(onClick = { scope.launch { drawerState.open() } }) {
+                                Icon(Icons.Default.Menu, contentDescription = "Menu")
+                            }
+                        },
+                        actions = {
+                            // Círculo de Perfil
+                            Box(
+                                modifier = Modifier
+                                    .padding(end = 16.dp)
+                                    .size(40.dp)
+                                    .clip(CircleShape)
+                                    .background(MaterialTheme.colorScheme.primaryContainer)
+                                    .clickable { navController.navigate("profile") },
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Person,
+                                    contentDescription = "Perfil",
+                                    tint = MaterialTheme.colorScheme.primary
+                                )
+                            }
+                        },
+                        colors = TopAppBarDefaults.topAppBarColors(
+                            containerColor = MaterialTheme.colorScheme.surface
+                        )
+                    )
+                }
+            },
+            bottomBar = {
             NavigationBar {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentRoute = navBackStackEntry?.destination?.route
@@ -136,7 +190,18 @@ fun MainScreen() {
                     onBackClick = { navController.popBackStack() }
                 )
             }
-            composable("laws") { LawsScreen() }
+            composable("spending_detail/{category}") { backStackEntry ->
+                val category = backStackEntry.arguments?.getString("category") ?: ""
+                SpendingDetailScreen(
+                    category = category,
+                    onBackClick = { navController.popBackStack() }
+                )
+            }
+            composable("laws") { 
+                LawsScreen(onCategoryClick = { category ->
+                    navController.navigate("spending_detail/$category")
+                }) 
+            }
             composable("works") { WorksScreen() }
             composable("surveys") { SurveysScreen() }
         }
