@@ -1,0 +1,4 @@
+android.useAndroidX=true
+android.nonTransitiveRClass=true
+org.gradle.jvmargs=-Xmx4096m -XX:MaxMetaspaceSize=1g -Dfile.encoding=UTF-8\r\norg.gradle.parallel=true\r\norg.gradle.caching=true\r\norg.gradle.configureondemand=true
+kotlin.code.style=official
