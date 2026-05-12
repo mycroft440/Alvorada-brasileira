@@ -1,0 +1,18 @@
+{
+  "operations": [
+    {
+      "action": "rt",
+      "file": "app/src/main/java/com/alvorada/MainActivity.kt",
+      "findText": "Divider()",
+      "newContent": "HorizontalDivider()",
+      "fuzzy": true
+    },
+    {
+      "action": "rt",
+      "file": "app/src/main/java/com/alvorada/ui/screens/LawsScreen.kt",
+      "findText": "Divider(modifier = Modifier.padding(vertical = 12.dp), color = Color.White.copy(alpha = 0.2f))",
+      "newContent": "HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp), color = Color.White.copy(alpha = 0.2f))",
+      "fuzzy": true
+    }
+  ]
+}

@@ -69,7 +69,7 @@ fun MainScreen() {
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
-                HorizontalDivider()
+                Divider()
                 NavigationDrawerItem(
                     icon = { Icon(Icons.Default.Favorite, contentDescription = null) },
                     label = { Text("Saúde") },

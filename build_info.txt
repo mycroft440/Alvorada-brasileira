@@ -1,0 +1,98 @@
+Initialized native services in: C:\Users\mycro\.gradle\native
+Initialized jansi services in: C:\Users\mycro\.gradle\native
+Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot, JAVA_VERSION=17.0.18, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=17.0.18+8, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=17.0.18+8, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
+Checking if the launcher JVM can be re-used for build. To be re-used, the launcher JVM needs to match the parameters required for the build process: --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED -Xmx2048m -Dfile.encoding=UTF-8 -Duser.country=BR -Duser.language=pt -Duser.variant
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Starting process 'Gradle build daemon'. Working directory: C:\Users\mycro\.gradle\daemon\8.2 Command: C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin\java.exe --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED -Xmx2048m -Dfile.encoding=UTF-8 -Duser.country=BR -Duser.language=pt -Duser.variant -cp C:\Users\mycro\.gradle\wrapper\dists\gradle-8.2-bin\bbg7u40eoinfdyxsxr3z4i7ta\gradle-8.2\lib\gradle-launcher-8.2.jar -javaagent:C:\Users\mycro\.gradle\wrapper\dists\gradle-8.2-bin\bbg7u40eoinfdyxsxr3z4i7ta\gradle-8.2\lib\agents\gradle-instrumentation-agent-8.2.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 8.2
+Successfully started process 'Gradle build daemon'
+An attempt to start the daemon took 3.324 secs.
+The client will now receive all logging from the daemon (pid: 17444). The daemon log file: C:\Users\mycro\.gradle\daemon\8.2\daemon-17444.out.log
+Daemon will be stopped at the end of the build 
+Using 4 worker leases.
+Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot, JAVA_VERSION=17.0.18, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=17.0.18+8, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=17.0.18+8, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
+Watching the file system is configured to be enabled if available
+Now considering [C:\Users\mycro\Desktop\apps\Alvorada-brasileira] as hierarchies to watch
+File system watching is active
+Starting Build
+Skipping Kotlin DSL script compilation (Settings/TopLevel/stage1) as it is up-to-date.
+The configuration classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+Skipping Kotlin DSL script compilation (Settings/TopLevel/stage2) as it is up-to-date.
+Settings evaluated using settings file 'C:\Users\mycro\Desktop\apps\Alvorada-brasileira\settings.gradle.kts'.
+Using local directory build cache for the root build (location = C:\Users\mycro\.gradle\caches\build-cache-1, removeUnusedEntriesAfter = 7 days).
+Projects loaded. Root project using build file 'C:\Users\mycro\Desktop\apps\Alvorada-brasileira\build.gradle.kts'.
+Included projects: [root project 'AlvoradaBrasileira', project ':app']
+
+> Configure project :
+Evaluating root project 'AlvoradaBrasileira' using build file 'C:\Users\mycro\Desktop\apps\Alvorada-brasileira\build.gradle.kts'.
+Build cache key for Kotlin DSL plugin specs accessors for classpath 'e366204388b10075f5dbbd876e05e2d7' is d2cc66dd0ff4a3647bc16a4848f58baf
+Skipping Kotlin DSL plugin specs accessors for classpath 'e366204388b10075f5dbbd876e05e2d7' as it is up-to-date.
+Build cache key for Kotlin DSL script compilation (Project/TopLevel/stage1) is 9cbe8f89ebd75231f6021b3a1e4c7eed
+Skipping Kotlin DSL script compilation (Project/TopLevel/stage1) as it is up-to-date.
+The configuration detachedConfiguration1 is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration detachedConfiguration1 is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration detachedConfiguration1 is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration detachedConfiguration1 is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration detachedConfiguration2 is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration detachedConfiguration2 is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration detachedConfiguration2 is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration detachedConfiguration2 is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+
+> Configure project :app
+Evaluating project ':app' using build file 'C:\Users\mycro\Desktop\apps\Alvorada-brasileira\app\build.gradle.kts'.
+Build cache key for Kotlin DSL script compilation (Project/TopLevel/stage1) is 17a70616517c75d2da28ffec533a9f22
+Skipping Kotlin DSL script compilation (Project/TopLevel/stage1) as it is up-to-date.
+The configuration :app:classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :app:classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :app:classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :app:classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle81 variant
+Build cache key for Kotlin DSL accessors for project ':app' is 28898c09e75b657f8b5b259efd7b18b9
+Skipping Kotlin DSL accessors for project ':app' as it is up-to-date.
+Build cache key for Kotlin DSL script compilation (Project/TopLevel/stage2) is 317797e88a74798b9ca305e8713655b3
+Skipping Kotlin DSL script compilation (Project/TopLevel/stage2) as it is up-to-date.
+All projects evaluated.
+The configuration :classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :app:classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :app:classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :app:classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :app:classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :app:classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :app:classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :app:classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :app:classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+The configuration :app:classpath is both resolvable and consumable. This is considered a legacy configuration and it will eventually only be possible to be one of these.
+The configuration :app:classpath is both consumable and declarable. This combination is incorrect, only one of these flags should be set.
+Task name matched 'assembleDebug'
+Selected primary task 'assembleDebug' from project :
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not determine the dependencies of task ':app:compileDebugJavaWithJavac'.
+> java.io.IOException: A sintaxe do nome do arquivo, do nome do diretório ou do rótulo do volume está incorreta
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 27s
+Watched directory hierarchies: []

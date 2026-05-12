@@ -131,7 +131,7 @@ fun PublicDebtCard() {
                 fontWeight = FontWeight.Bold
             )
             
-            HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp), color = Color.White.copy(alpha = 0.2f))
+            Divider(modifier = Modifier.padding(vertical = 12.dp), color = Color.White.copy(alpha = 0.2f))
             
             Text(
                 text = "Juros a pagar este mês:",
