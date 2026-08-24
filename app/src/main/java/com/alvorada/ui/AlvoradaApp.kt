@@ -49,7 +49,8 @@ fun AlvoradaApp(repository: AlvoradaRepository) {
     val pagerState = rememberPagerState(pageCount = { destinations.size })
     val scope = rememberCoroutineScope()
     val proposals = remember(repository) { repository.proposals() }
-    val works = remember(repository) { repository.works().prioritizedForIntegrityReview() }
+    val rawWorks = remember(repository) { repository.works() }
+    val works = remember(rawWorks) { rawWorks.prioritizedForIntegrityReview() }
     val profile = remember(repository) { repository.profile() }
     val feedPosts = remember(repository) {
         mutableStateListOf<FeedPost>().apply { addAll(repository.feed()) }
@@ -106,7 +107,9 @@ fun AlvoradaApp(repository: AlvoradaRepository) {
                     contentPadding = padding,
                     works = works,
                     onProfileClick = { showProfile = true },
-                    onWorkClick = { selectedWork = it }
+                    onWorkClick = { presentedWork ->
+                        selectedWork = rawWorks.firstOrNull { it.id == presentedWork.id } ?: presentedWork
+                    }
                 )
             }
         }
