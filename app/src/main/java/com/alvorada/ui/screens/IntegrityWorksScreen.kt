@@ -39,7 +39,7 @@ import com.alvorada.core.model.GovernmentWork
 import com.alvorada.core.model.RiskLevel
 import com.alvorada.core.model.WorkStatus
 
-private enum class IntegrityWorkFilter { ALL, POSSIBLE_FRAUD, ONGOING, COMPLETED }
+private enum class IntegrityWorkFilter { ALL, POSSIBLE_FRAUD, ONGOING, COMPLETED, PLANNED }
 
 private data class WorkLocation(
     val state: String,
@@ -62,6 +62,7 @@ fun IntegrityWorksScreen(
             IntegrityWorkFilter.POSSIBLE_FRAUD -> work.riskLevel == RiskLevel.HIGH
             IntegrityWorkFilter.ONGOING -> work.status == WorkStatus.ONGOING
             IntegrityWorkFilter.COMPLETED -> work.status == WorkStatus.COMPLETED
+            IntegrityWorkFilter.PLANNED -> work.status == WorkStatus.PLANNED
         }
         filterMatches && (
             query.isBlank() ||
@@ -222,6 +223,11 @@ private fun IntegrityFilterSelector(
                 selected = filter == IntegrityWorkFilter.COMPLETED,
                 onClick = { onFilterChange(IntegrityWorkFilter.COMPLETED) },
                 label = { Text("Concluídas") }
+            )
+            FilterChip(
+                selected = filter == IntegrityWorkFilter.PLANNED,
+                onClick = { onFilterChange(IntegrityWorkFilter.PLANNED) },
+                label = { Text("Planejadas") }
             )
         }
     }
