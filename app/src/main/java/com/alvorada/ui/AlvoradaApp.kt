@@ -23,12 +23,12 @@ import com.alvorada.core.model.Proposal
 import com.alvorada.data.AlvoradaRepository
 import com.alvorada.ui.screens.CommentsSheet
 import com.alvorada.ui.screens.FeedScreen
+import com.alvorada.ui.screens.IntegrityWorksScreen
 import com.alvorada.ui.screens.ProfileSheet
 import com.alvorada.ui.screens.ProposalDetailSheet
 import com.alvorada.ui.screens.ProposalsScreen
 import com.alvorada.ui.screens.ShareProposalSheet
 import com.alvorada.ui.screens.WorkDetailSheet
-import com.alvorada.ui.screens.WorksScreen
 import kotlinx.coroutines.launch
 
 private data class MainDestination(
@@ -103,7 +103,7 @@ fun AlvoradaApp(repository: AlvoradaRepository) {
                     onShareClick = { shareProposal = it }
                 )
 
-                else -> WorksScreen(
+                else -> IntegrityWorksScreen(
                     contentPadding = padding,
                     works = works,
                     onProfileClick = { showProfile = true },
