@@ -49,7 +49,7 @@ fun AlvoradaApp(repository: AlvoradaRepository) {
     val pagerState = rememberPagerState(pageCount = { destinations.size })
     val scope = rememberCoroutineScope()
     val proposals = remember(repository) { repository.proposals() }
-    val works = remember(repository) { repository.works() }
+    val works = remember(repository) { repository.works().prioritizedForIntegrityReview() }
     val profile = remember(repository) { repository.profile() }
     val feedPosts = remember(repository) {
         mutableStateListOf<FeedPost>().apply { addAll(repository.feed()) }
